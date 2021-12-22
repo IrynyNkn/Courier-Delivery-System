@@ -1,6 +1,7 @@
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS customers (
     id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     age INT NULL,
 
@@ -21,6 +22,7 @@ CREATE TABLE IF NOT EXISTS courier (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     experience INT NULL,
+    phone_number VARCHAR(20) NOT NULL,
 
     CHECK ( experience > 0 )
 );
@@ -64,15 +66,16 @@ CREATE TABLE IF NOT EXISTS office (
 
 CREATE TABLE IF NOT EXISTS orders (
     id SERIAL PRIMARY KEY,
-    user_id INT NOT NULL,
+    customer_id INT NOT NULL,
     commodity_id INT NOT NULL,
     delivery_status_id INT NOT NULL,
     office_id INT NOT NULL,
     courier_id INT NOT NULL,
     number_of_products INT NOT NULL,
+    date_get DATE NOT NULL,
 
     FOREIGN KEY (commodity_id) REFERENCES commodity (id),
-    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (customer_id) REFERENCES customers (id),
     FOREIGN KEY (delivery_status_id) REFERENCES delivery_status (id),
     FOREIGN KEY (office_id) REFERENCES office (id),
     FOREIGN KEY (courier_id) REFERENCES courier (id),
