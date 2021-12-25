@@ -36,8 +36,7 @@ CREATE TABLE IF NOT EXISTS commodity (
     id SERIAL PRIMARY KEY,
     name VARCHAR(512) NOT NULL,
     weight INT NOT NULL,
-    price INT NOT NULL,
-    quantity INT NULL
+    price INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS commodity_category (
@@ -79,5 +78,5 @@ CREATE TABLE IF NOT EXISTS orders (
     FOREIGN KEY (delivery_status_id) REFERENCES delivery_status (id),
     FOREIGN KEY (office_id) REFERENCES office (id),
     FOREIGN KEY (courier_id) REFERENCES courier (id),
-    CHECK ( number_of_products > 0 )
+    CHECK ( number_of_products > 0 ),
 );

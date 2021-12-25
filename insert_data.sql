@@ -13,7 +13,7 @@ FROM 'D:\kpi_2_course\data-bases\delivery-system\data\category.csv'
 DELIMITER ','
 CSV HEADER;
 
-COPY commodity(id, name, weight, price, quantity)
+COPY commodity(id, name, weight, price)
 FROM 'D:\kpi_2_course\data-bases\delivery-system\data\commodity.csv'
 DELIMITER ','
 CSV HEADER;
