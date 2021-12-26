@@ -72,7 +72,6 @@ CREATE TABLE IF NOT EXISTS orders (
     courier_id INT NOT NULL,
     number_of_products INT NOT NULL,
     date_get DATE NOT NULL,
-
     FOREIGN KEY (commodity_id) REFERENCES commodity (id),
     FOREIGN KEY (customer_id) REFERENCES customers (id),
     FOREIGN KEY (delivery_status_id) REFERENCES delivery_status (id),

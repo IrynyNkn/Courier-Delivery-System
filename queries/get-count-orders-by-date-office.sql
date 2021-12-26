@@ -6,3 +6,4 @@ FROM orders
     JOIN office o on orders.office_id = o.id
 GROUP BY orders.date_get, o.address
 ORDER BY total_orders DESC;
+

@@ -16,3 +16,7 @@ CREATE OR REPLACE VIEW get_orders_details AS
         JOIN delivery_status ds on o.delivery_status_id = ds.id
         JOIN office o2 on o.office_id = o2.id
         JOIN courier c3 on c3.id = o.courier_id;
+
+DROP VIEW IF EXISTS get_orders_details;
+
+-- SELECT * FROM get_orders_details;

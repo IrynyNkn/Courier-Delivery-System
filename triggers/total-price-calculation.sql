@@ -28,10 +28,6 @@ BEGIN
 END
 $$;
 
-DROP FUNCTION calculate_total_price;
-
-DROP TRIGGER calculate_total_price_trigger
-ON commodity;
 
 CREATE TRIGGER calculate_total_price_trigger BEFORE INSERT OR UPDATE ON commodity
     FOR EACH ROW
@@ -40,5 +36,3 @@ CREATE TRIGGER calculate_total_price_trigger BEFORE INSERT OR UPDATE ON commodit
 
 INSERT INTO commodity(id, name, weight, price, quantity)
 VALUES (101, 'Jeans', 14, 100, 1);
-
-SELECT * FROM commodity;
